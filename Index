@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Partners Playbook</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+:root{
+  --bg:#f7f4ef;--bg2:#efeae1;--bg3:#e5dfd3;
+  --ink:#1c1814;--ink2:#4a4239;--ink3:#8a7d6e;
+  --rule:#d5cfc4;--warm:#c17d3c;--warm-lt:#f0e4d0;--warm-dk:#8a5522;
+  --green:#3a7d5c;--green-lt:#d4ede1;
+  --red:#9b3a3a;--red-lt:#f0d8d8;
+  --blue:#3a5f8a;--blue-lt:#d4e2f0;
+  --purple:#6b4a8a;--purple-lt:#e5d8f5;
+  --slate:#3d5a6b;--slate-lt:#d8e8f0;
+  --tap:48px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden}
+
+/* COVER */
+.cover{background:var(--ink);color:var(--bg);padding:clamp(36px,6vw,64px) clamp(20px,5vw,48px) clamp(32px,5vw,56px);position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 800px 400px at 110% 50%,rgba(193,125,60,.18),transparent),radial-gradient(ellipse 500px 350px at -10% 80%,rgba(58,125,92,.1),transparent);pointer-events:none}
+.cover-inner{max-width:820px;margin:0 auto;position:relative}
+.cover-eyebrow{font-family:'DM Mono';font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--warm);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.cover-eyebrow::after{content:'';flex:1;height:1px;background:rgba(193,125,60,.3);max-width:80px}
+.cover h1{font-family:'Lora';font-size:clamp(28px,6vw,52px);font-weight:600;line-height:1.12;letter-spacing:-.3px;margin-bottom:16px}
+.cover h1 em{font-style:italic;color:var(--warm)}
+.cover p.sub{font-size:clamp(13px,2.5vw,15.5px);color:rgba(247,244,239,.6);max-width:500px;margin-bottom:36px;font-weight:300;line-height:1.6}
+.cover-principles{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid rgba(247,244,239,.12);padding-top:28px}
+.principle .p-n{font-family:'Lora';font-style:italic;font-size:13px;color:var(--warm);margin-bottom:4px;display:block}
+.principle p{font-size:12px;color:rgba(247,244,239,.45);line-height:1.55}
+
+/* NAV */
+.nav-wrap{background:var(--ink2);position:sticky;top:0;z-index:40}
+.nav{max-width:820px;margin:0 auto;display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav-item{font-family:'DM Mono';font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(247,244,239,.4);padding:13px 15px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:.15s;min-height:var(--tap);display:flex;align-items:center;touch-action:manipulation;user-select:none}
+.nav-item.active{color:var(--bg);border-bottom-color:var(--warm)}
+
+/* PAGE */
+.page{max-width:820px;margin:0 auto;padding:0 clamp(16px,4vw,24px) 80px}
+
+/* SECTION */
+.section{margin-top:clamp(40px,6vw,56px)}
+.section-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:26px;padding-bottom:18px;border-bottom:1.5px solid var(--rule)}
+.section-icon{width:48px;height:48px;min-width:48px;border-radius:13px;display:grid;place-items:center;font-size:20px}
+.section-label{font-family:'DM Mono';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+.section-title{font-family:'Lora';font-size:clamp(19px,4vw,24px);font-weight:600;line-height:1.2}
+.section-desc{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.55}
+
+/* MINDSET */
+.mindset{background:var(--bg2);border-left:3px solid var(--warm);border-radius:0 10px 10px 0;padding:13px 16px;margin-bottom:24px;font-size:13.5px;color:var(--ink2);font-style:italic;line-height:1.6}
+.mindset b{color:var(--warm-dk);font-style:normal}
+
+/* SCRIPT GROUPS */
+.script-group{margin-bottom:28px}
+.script-group-title{font-family:'DM Mono';font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.script-group-title::after{content:'';flex:1;height:1px;background:var(--rule)}
+
+/* SCRIPT CARDS */
+.script-card{background:#fff;border:1px solid var(--rule);border-radius:12px;overflow:hidden;margin-bottom:10px}
+.script-card-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;gap:12px;user-select:none;min-height:var(--tap);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.script-card-head:active{background:var(--bg)}
+.sh-left{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.script-tag{font-family:'DM Mono';font-size:10px;letter-spacing:.8px;text-transform:uppercase;padding:3px 8px;border-radius:6px;white-space:nowrap;flex-shrink:0}
+.script-card-title{font-weight:600;font-size:13.5px;line-height:1.3}
+.script-chevron{color:var(--ink3);font-size:13px;transition:.2s;flex-shrink:0}
+.script-card.open .script-chevron{transform:rotate(180deg)}
+.script-body{display:none;padding:0 16px 16px}
+.script-card.open .script-body{display:block}
+
+/* DIALOGUE */
+.dialogue{display:flex;flex-direction:column}
+.dline{display:grid;grid-template-columns:52px 1fr;gap:0 12px;padding:11px 0;border-bottom:1px solid var(--bg2)}
+.dline:last-child{border-bottom:none}
+.dline .role{font-family:'DM Mono';font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);padding-top:3px;font-weight:500}
+.dline.you .role{color:var(--warm-dk)}
+.dline .line{font-size:13.5px;line-height:1.65;color:var(--ink)}
+.dline .note{grid-column:2;font-size:11.5px;color:var(--ink3);font-style:italic;margin-top:6px;padding-left:10px;border-left:2px solid var(--rule);line-height:1.55}
+
+/* OBJECTIONS */
+.objection-pair{background:var(--bg2);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.obj-q{font-weight:600;font-size:13.5px;margin-bottom:9px;color:var(--ink);line-height:1.4}
+.obj-q::before{content:'❝ ';color:var(--ink3);font-size:14px}
+.obj-a{font-size:13.5px;color:var(--ink2);line-height:1.65}
+.obj-a .key{color:var(--warm-dk);font-weight:600}
+
+/* CLOSE CARDS */
+.close-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.close-card{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:14px 16px}
+.close-card .cc-label{font-family:'DM Mono';font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:7px}
+.close-card .cc-text{font-size:13.5px;color:var(--ink);line-height:1.65}
+
+/* TIPS */
+.tip-row{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--rule)}
+.tip-row:last-child{border-bottom:none}
+.tip-row .ti{font-size:18px;flex-shrink:0;margin-top:2px}
+.tip-row .td .th{font-weight:600;font-size:13.5px;margin-bottom:3px}
+.tip-row .td p{font-size:13px;color:var(--ink2);line-height:1.6}
+
+/* DO/DONT */
+.dd-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.dd-col{border-radius:10px;padding:14px 16px}
+.dd-col.do{background:var(--green-lt);border:1px solid rgba(58,125,92,.2)}
+.dd-col.dont{background:var(--red-lt);border:1px solid rgba(155,58,58,.2)}
+.dd-col .dd-h{font-family:'DM Mono';font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;margin-bottom:11px}
+.dd-col.do .dd-h{color:var(--green)}.dd-col.dont .dd-h{color:var(--red)}
+.dd-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.dd-col li{font-size:13px;color:var(--ink2);padding-left:18px;position:relative;line-height:1.5}
+.dd-col.do li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+.dd-col.dont li::before{content:'✕';position:absolute;left:0;color:var(--red);font-weight:700}
+
+/* HANDOFF */
+.handoff{background:var(--ink);color:var(--bg);border-radius:14px;padding:clamp(22px,4vw,30px) clamp(18px,4vw,32px);margin-top:clamp(40px,6vw,56px)}
+.handoff h3{font-family:'Lora';font-size:clamp(18px,4vw,21px);font-weight:600;margin-bottom:6px}
+.handoff p{font-size:13px;color:rgba(247,244,239,.55);margin-bottom:20px;line-height:1.6}
+.handoff-steps{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hs{background:rgba(247,244,239,.06);border:1px solid rgba(247,244,239,.1);border-radius:10px;padding:13px 14px}
+.hs .hn{font-family:'Lora';font-style:italic;font-size:21px;color:var(--warm);margin-bottom:5px}
+.hs .ht{font-weight:600;font-size:12.5px;margin-bottom:4px}
+.hs .hd{font-size:11.5px;color:rgba(247,244,239,.4);line-height:1.55}
+
+/* BREAKPOINTS */
+@media(min-width:480px){
+  .close-grid{grid-template-columns:1fr 1fr}
+  .dd-grid{grid-template-columns:1fr 1fr}
+}
+@media(min-width:640px){
+  .cover-principles{grid-template-columns:repeat(4,1fr)}
+  .handoff-steps{grid-template-columns:repeat(4,1fr)}
+  .nav-item{font-size:10.5px;padding:13px 18px}
+}
+@media(min-width:768px){
+  .dline{grid-template-columns:64px 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-eyebrow">Partners Playbook &mdash; Seller Scripts</div>
+    <h1>The conversation that<br><em>changes everything</em><br>for them.</h1>
+    <p class="sub">Five distress-type scripts built for real human connection. Not to sell. To help someone in a hard situation find a clear path forward — and trust you enough to walk it with you.</p>
+    <div class="cover-principles">
+      <div class="principle"><span class="p-n">Listen first.</span><p>Understand before you present. The script is a guide, not a reading.</p></div>
+      <div class="principle"><span class="p-n">Name the pain.</span><p>People relax when they feel understood. Say what they're carrying before you say what you offer.</p></div>
+      <div class="principle"><span class="p-n">Control is the gift.</span><p>Distressed sellers feel out of control. You're an option, not a pressure.</p></div>
+      <div class="principle"><span class="p-n">Simple closes.</span><p>The goal of every call is one small next step, not a signed contract in 60 seconds.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="nav-wrap">
+  <nav class="nav" id="nav">
+    <div class="nav-item active" onclick="goTo('universal')">Foundation</div>
+    <div class="nav-item" onclick="goTo('preforeclosure')">Pre-Foreclosure</div>
+    <div class="nav-item" onclick="goTo('taxlien')">Tax Lien</div>
+    <div class="nav-item" onclick="goTo('auction')">Auction</div>
+    <div class="nav-item" onclick="goTo('probate')">Probate</div>
+    <div class="nav-item" onclick="goTo('vacant')">Vacant</div>
+    <div class="nav-item" onclick="goTo('handoff')">→ MaxDispo</div>
+  </nav>
+</div>
+
+<div class="page">
+
+<!-- FOUNDATION -->
+<div class="section" id="universal">
+  <div class="section-header">
+    <div class="section-icon" style="background:#f0e4d0">🧭</div>
+    <div class="section-meta">
+      <div class="section-label">Foundation</div>
+      <div class="section-title">Before every call</div>
+      <div class="section-desc">These principles apply regardless of distress type. Read them before you pick up the phone.</div>
+    </div>
+  </div>
+  <div class="mindset"><b>Your core frame:</b> You are not trying to buy their house. You are trying to find out if you can help them. If you can, great. If you can't, you'll tell them that too. This frame makes everything feel natural — because it's true.</div>
+
+  <div class="script-group">
+    <div class="script-group-title">Universal Opener</div>
+    <div class="script-card open" id="uo">
+      <div class="script-card-head" onclick="toggle('uo')">
+        <div class="sh-left">
+          <span class="script-tag" style="background:#f0e4d0;color:#8a5522">All Types</span>
+          <span class="script-card-title">The First 20 Seconds</span>
+        </div>
+        <span class="script-chevron">▾</span>
+      </div>
+      <div class="script-body">
+        <div class="dialogue">
+          <div class="dline you"><span class="role">You</span><span class="line">Hi, is this [First Name]? My name is [Your Name] — I'm a real estate investor in the area. I came across your property on [street] and just wanted a quick, honest conversation about it — not a sales pitch, I promise. Do you have about two minutes?</span><span class="note">Pause here. Let them answer. If they sound rushed: "Completely understood — when would be a better time?" This alone signals you're different from every other caller.</span></div>
+          <div class="dline"><span class="role">Them</span><span class="line">[If yes, proceed. If skeptical: "What is this about?"]</span></div>
+          <div class="dline you"><span class="role">You</span><span class="line">That's fair. I work with homeowners dealing with situations that make the traditional real estate process really hard — things like foreclosure, liens, or a property that's become more of a burden than a benefit. I'm not a listing agent. I buy directly, which means no fees, no showings, no waiting. But I genuinely want to hear what's going on before I say anything else. Where are things at with the property right now?</span><span class="note">This pivots into the situation-specific script. Their answer tells you which direction to go.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="script-group">
+    <div class="script-group-title">Tone &amp; Technique</div>
+    <div class="tip-row"><div class="ti">🗣️</div><div class="td"><div class="th">Slow down when they share something hard</div><p>If they mention losing a job, a divorce, a death — pause. Say "I'm really sorry to hear that." Don't barrel past it. That two-second pause earns more trust than five minutes of pitch.</p></div></div>
+    <div class="tip-row"><div class="ti">🔁</div><div class="td"><div class="th">Reflect back before moving forward</div><p>Before presenting anything, repeat what you heard: "So if I'm understanding right, you've been dealing with [X] and you're mainly worried about [Y] — is that right?" This costs you 15 seconds and makes them feel genuinely heard.</p></div></div>
+    <div class="tip-row"><div class="ti">🚪</div><div class="td"><div class="th">Always give them an easy exit</div><p>"There's no pressure here" and "You're not committed to anything by talking to me" should appear at least twice per call. A seller who feels trapped becomes a seller who hangs up.</p></div></div>
+    <div class="tip-row"><div class="ti">🤐</div><div class="td"><div class="th">Silence is information</div><p>After asking a meaningful question, stop talking. Let silence work. A seller who's thinking is a seller who's considering. Filling that silence kills the moment.</p></div></div>
+  </div>
+
+  <div class="script-group">
+    <div class="script-group-title">Do &amp; Don't</div>
+    <div class="dd-grid">
+      <div class="dd-col do"><div class="dd-h">✓ Do</div><ul>
+        <li>Use their first name — once every few exchanges, naturally</li>
+        <li>Ask "how long has this been going on?" to show care about their timeline</li>
+        <li>Acknowledge the emotion behind the situation, not just the facts</li>
+        <li>State your offer as one option among several they have</li>
+        <li>End every call by naming the next small step clearly</li>
+        <li>Follow up in writing with a plain summary of what you discussed</li>
+      </ul></div>
+      <div class="dd-col dont"><div class="dd-h">✕ Don't</div><ul>
+        <li>Lead with your offer before understanding their situation</li>
+        <li>Use words like "distressed," "underwater," or "in trouble" about their home</li>
+        <li>Create urgency that isn't real</li>
+        <li>Talk over them or rush through silence</li>
+        <li>Make the contract feel like a trap — frame it as paperwork</li>
+        <li>Promise a number before you've done your homework</li>
+      </ul></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRE-FORECLOSURE -->
+<div class="section" id="preforeclosure">
+  <div class="section-header">
+    <div class="section-icon" style="background:var(--red-lt)">🏚️</div>
+    <div class="section-meta">
+      <div class="section-label">Script 01 — Pre-Foreclosure</div>
+      <div class="section-title">Racing the clock with them, not against them</div>
+      <div class="section-desc">This seller is behind on payments and has received a notice of default. They are scared, ashamed, and often in denial about their timeline. They need clarity more than they need a buyer.</div>
+    </div>
+  </div>
+  <div class="mindset"><b>What they're actually feeling:</b> Fear of losing the home, shame about falling behind, confusion about what happens next, and a desperate hope that something will change on its own. Your job is to be the calm, clear voice that replaces panic with options.</div>
+
+  <div class="script-group">
+    <div class="script-group-title">Core Conversation</div>
+    <div class="script-card" id="pf1">
+      <div class="script-card-head" onclick="toggle('pf1')">
+        <div class="sh-left"><span class="script-tag" style="background:var(--red-lt);color:var(--red)">Opener</span><span class="script-card-title">Addressing the situation after universal opener</span></div>
+        <span class="script-chevron">▾</span>
+      </div>
+      <div class="script-body">
+        <div class="dialogue">
+          <div class="dline you"><span class="role">You</span><span class="line">I know this can't be an easy time. A lot of homeowners I talk to in this situation feel like they're running out of road, and that's a really stressful place to be. Can I ask — have you had a chance to talk to your lender at all about where things stand?</span><span class="note">Opens the door without accusation. You're treating them as an adult dealing with something hard, not a delinquent.</span></div>
+          <div class="dline"><span class="role">Them</span><span class="line">[Usually: "Not really," or "They're not helpful," or "I don't know what to do."]</span></div>
+          <div class="dline you"><span class="role">You</span><span class="line">That's actually pretty common — lenders can be hard to navigate when you're already stressed. Here's what I want you to know: even where things are right now, you likely still have options. One of them is being able to walk away with some money rather than nothing — or worse, a foreclosure on your credit for years. I'm not telling you my way is the only way. But I want you to understand what it looks like before you decide anything. Does that seem fair?</span><span class="note">"Fair?" is a soft-permission word that invites a yes without pressure.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="script-card" id="pf2">
+      <div class="script-card-head" onclick="toggle('pf2')">
+        <div class="sh-left"><span class="script-tag" style="background:var(--red-lt);color:var(--red)">Deep</span><span class="script-card-title">Understanding their timeline and real concern</span></div>
+        <span class="script-chevron">▾</span>
+      </div>
+      <div class="script-body">
+        <div class="dialogue">
+          <div class="dline you"><span class="role">You</span><span class="line">Let me ask you something personal — only answer if you're comfortable. When you think about losing this house, what worries you most? Is it the credit hit, or is it something more like — where do I go, what do I tell my family?</span><span class="note">This shifts from transactional to human. Whatever they say next is your anchor for the rest of the call.</span></div>
+          <div class="dline"><span class="role">Them</span><span class="line">[Whatever they share — pause, acknowledge it before continuing.]</span></div>
+          <div class="dline you"><span class="role">You</span><span class="line">I hear you. That's real, and it matters. When someone sells before the foreclosure finalizes, a few things change — you control the outcome instead of the bank, you can potentially walk away with equity you'd otherwise lose, and you leave on your own terms. That last part sounds small, but a lot of people tell me it made a huge difference in how they felt about the whole thing.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="script-card" id="pf3">
+      <div class="script-card-head" onclick="toggle('pf3')">
+        <div class="sh-left"><span class="script-tag" style="background:var(--red-lt);color:var(--red)">Offer Bridge</span><span class="script-card-title">Transitioning to numbers without pressure</span></div>
+        <span class="script-chevron">▾</span>
+      </div>
+      <div class="script-body">
+        <div class="dialogue">
+          <div class="dline you"><span class="role">You</span><span class="line">If you're open to it, I'd love to run some rough numbers with you — not to pressure you, but so you have a real picture of what a sale looks like versus what a foreclosure typically leaves. Would it be okay if I asked a couple of quick questions about the property?</span></div>
+          <div class="dline you"><span class="role">You</span><span class="line">[After gathering details] Here's the honest picture — if we can close before [date], here's roughly what you'd walk away with. I'm not going to offer you full retail, and I'd never pretend otherwise. What I can offer is certainty, speed, and no extra costs. No agent fees, no repairs, no waiting. You pick the closing date.</span><span class="note">Transparency about the discount builds more trust than trying to dress it up. Name it first.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="script-group">
+    <div class="script-group-title">Objections</div>
+    <div class="objection-pair"><div class="obj-q">I'm just going to try to work something out with the bank.</div><div class="obj-a">That's absolutely worth trying — I'd encourage it, honestly. What I'd ask is this: let's stay in touch while you go through that process. If it works out, great. If it doesn't, you don't want to be scrambling at the last minute. Would you be okay if I followed up in a couple of weeks just to check in?</div></div>
+    <div class="objection-pair"><div class="obj-q">I don't want to just give my house away.</div><div class="obj-a"><span class="key">Completely understandable — and you shouldn't have to.</span> The question isn't whether to take less than market value, it's whether what you'd walk away with now is more or less than what a foreclosure leaves — which is typically nothing, plus a damaged credit score for years. Can I show you both numbers side by side so you can make that comparison yourself?</div></div>
+    <div class="objection-pair"><div class="obj-q">I need more time to think about it.</div><div class="obj-a">Of course you do — this is a big decision. Here's the one thing to keep in mind: the foreclosure clock doesn't pause while we think. Let's set a specific time to talk again — even just 10 minutes — so we're not losing options. What does your week look like?</div></div>
+  </div>
+
+  <div class="script-group">
+    <div class="script-group-title">Close Options</div>
+    <div class="close-grid">
+      <div class="close-card"><div class="cc-label">Soft Close</div><div class="cc-text">"What would need to be true for this to feel like the right move for you?"</div></div>
+      <div class="close-card"><div class="cc-label">Next Step Close</div><div class="cc-text">"Let me put together a written offer so you have something real in hand. That doesn't commit you to anything. You read it, sleep on it. Fair?"</div></div>
+      <div class="close-card"><div class="cc-label">Timeline Close</div><div class="cc-text">"The auction date is [X weeks] away. If we start paperwork this week, we still have room to make this clean and comfortable. After that, options start to shrink."</div></div>
+      <div class="close-card"><div class="cc-label">Control Close</div><div class="cc-text">"At the end of this, I want you to feel like you made a decision — not like something happened to you. This is your house and your call."</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAX LIEN -->
+<div class="section" id="taxlien">
+  <div class="section-header">
+    <div class="section-icon" style="background:var(--blue-lt)">📋</div>
+    <div class="section-meta">
+      <div class="section-label">Script 02 — Tax Lien</div>
+      <div class="section-title">Turning a government problem into a clean exit</div>
+      <div class="section-desc">This seller has unpaid property taxes creating a lien. They may not understand how serious it is, or feel trapped by a debt they can't clear. They need the math explained simply and a clear path forward.</div>
+    </div>
+  </div>
+  <div class="mindset"><b>What they're actually feeling:</b> Confusion about the process, possible embarrassment, and often the belief that the lien has ruined the property's value. Many don't know a sale can clear the lien — that information alone can be the turning point of the call.</div>
+
+  <div class="script-group">
+    <div class="script-group-title">Core Conversation</div>
+    <div class="script-card" id="tl1">
+      <div class="script-card-head" onclick="toggle('tl1')">
+        <div class="sh-left"><span class="script-tag" style="background:var(--blue-lt);color:var(--blue)">Opener</span><span class="script-card-title">Normalizing the situation</span></div>
+        <span class="script-chevron">▾</span>
+      </div>
+      <div class="script-body">
+        <div class="dialogue">
+          <div class="dline you"><span class="role">You</span><span class="line">I want to be upfront — I'm aware there's a tax lien on the property, and I know that can feel like a cloud hanging over everything. I work with homeowners in exactly this situation regularly, so I'm not calling to judge anything. I'm calling because I think there might be a clean way out of this for you. Can I ask — how long has the lien been on there, roughly?</span><span class="note">Naming the lien directly removes the elephant from the room. It's a relief that you already know and you're not shocked.</span></div>
+          <div class="dline you"><span class="role">You</span><span class="line">Here's something a lot of people don't realize — a tax lien doesn't mean the property is worthless or unsellable. When we close, those liens get paid out of the proceeds. You don't have to come up with that money before the sale — it just gets handled at the table. Does that change things at all for you?</span><span class="note">This is often genuinely new information. Pause and let it land.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="script-card" id="tl2">
+      <div class="script-card-head" onclick="toggle('tl2')">
+        <div class="sh-left"><span class="script-tag" style="background:var(--blue-lt);color:var(--blue)">Deep</span><span class="script-card-title">What keeping the property actually costs them</span></div>
+        <span class="script-chevron">▾</span>
+      </div>
+      <div class="script-body">
+        <div class="dialogue">
+          <div class="dline you"><span class="role">You</span><span class="line">Can I ask — what's keeping you in the property right now? Is this your primary home, a rental, inherited — what's the situation?</span><span class="note">An inherited property with a lien is a very different conversation than a primary residence.</span></div>
+          <div class="dline you"><span class="role">You</span><span class="line">I ask because the longer a tax lien sits, the more penalties and interest stack on top of it. And the county can eventually move to take the property. I'm not saying that to scare you — I'm saying it because you deserve to know what the cost of waiting actually is, and make a decision based on that. Does that make sense?</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="script-group">
+    <div class="script-group-title">Objections</div>
+    <div class="objection-pair"><div class="obj-q">I was going to just pay it off eventually.</div><div class="obj-a">That's a real option, and if it's achievable it might be the right move. I'd just want to make sure you know what "eventually" is costing you — penalties and interest on tax liens compound fast. If you've got a concrete plan to clear it, tell me more. If it's more of a hope, let's look at what selling would put in your pocket after the lien's cleared, so you have both options in front of you.</div></div>
+    <div class="objection-pair"><div class="obj-q">I didn't know you could sell with a lien on it.</div><div class="obj-a"><span class="key">That's the most common thing I hear.</span> Yes — the lien doesn't prevent a sale. It gets settled out of closing proceeds, and in most cases you still walk away with money, depending on how much equity is in the property. That's what I'd want to map out with you — whether there's enough equity to clear the debt and still leave something meaningful.</div></div>
+    <div class="objection-pair"><div class="obj-q">What if there's not enough equity to cover the lien?</div><div class="obj-a">That's the right question to ask. If that's the case, we'd likely need to negotiate a short sale — which I can help with, but it's a different process. Let me pull together the numbers first so we're not guessing. Give me a couple of days to come back with something real.</div></div>
+  </div>
+
+  <div class="script-group">
+    <div class="script-group-title">Close Options</div>
+    <div class="close-grid">
+      <div class="close-card"><div class="cc-label">Math Close</div><div class="cc-text">"Let me put together the real numbers — lien balance, estimated value, what you'd net after everything's cleared. No surprises. Then you decide."</div></div>
+      <div class="close-card"><div class="cc-label">Relief Close</div><div class="cc-text">"A lot of people I work with say that just getting this resolved — regardless of the number — feels like putting down a weight they've been carrying for years. What would it mean to just have this done?"</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- AUCTION -->
+<div class="section" id="auction">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fde8cc">⏱️</div>
+    <div class="section-meta">
+      <div class="section-label">Script 03 — Auction / Notice of Sale</div>
+      <div class="section-title">The hardest timeline — the most urgent calm</div>
+      <div class="section-desc">A Notice of Sale has been filed. A date is set. The window is measured in days or a few weeks. Every word has to be calm, direct, and honest.</div>
+    </div>
+  </div>
+  <div class="mindset"><b>What they're actually feeling:</b> Panic, paralysis, or both. Some are in denial. Some have already emotionally checked out. Your tone must be steady and warm — not urgent in a way that feels like pressure. You have the same deadline they do. Be on the same side.</div>
+
+  <div class="script-group">
+    <div class="script-group-title">Core Conversation</div>
+    <div class="script-card" id="au1">
+      <div class="script-card-head" onclick="toggle('au1')">
+        <div class="sh-left"><span class="script-tag" style="background:#fde8cc;color:#7a4a10">Opener</span><span class="script-card-title">Being straight about the timeline without panicking them</span></div>
+        <span class="script-chevron">▾</span>
+      </div>
+      <div class="script-body">
+        <div class="dialogue">
+          <div class="dline you"><span class="role">You</span><span class="line">I want to be straight with you right away because I think you deserve that — I know there's a sale date on the property, and I know time is short. I'm not calling to add to your stress. I'm calling because there may still be a window, and I don't want you to miss it if it would've been helpful. Do you know when the auction date is?</span><span class="note">Don't soften this into dishonesty. They know the situation. Acknowledging it plainly earns trust in the next 30 seconds.</span></div>
+          <div class="dline you"><span class="role">You</span><span class="line">Here's the honest picture: if we can get a contract in place before that date, it's possible to stop the auction — or at least get you something rather than nothing. Once the auction happens, the property's gone and so is any equity. I can't promise a miracle, but I can promise I'll move fast and be straight with you at every step. Is that worth a conversation?</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="script-card" id="au2">
+      <div class="script-card-head" onclick="toggle('au2')">
+        <div class="sh-left"><span class="script-tag" style="background:#fde8cc;color:#7a4a10">Anchor</span><span class="script-card-title">Acknowledging what this moment actually is</span></div>
+        <span class="script-chevron">▾</span>
+      </div>
+      <div class="script-body">
+        <div class="dialogue">
+          <div class="dline you"><span class="role">You</span><span class="line">I want to say something, and I mean it genuinely — I know this isn't just a financial transaction for you. This is your home. Whatever led here, that's real, and I'm not dismissing it. What I want to do is help you come out of this with your dignity and something in your pocket, rather than just having it taken from you. You still have some say here. Not a lot of time, but some say. Let's use it.</span><span class="note">This is the emotional core of this call. If the seller is checked out, this acknowledgment re-engages them.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="script-group">
+    <div class="script-group-title">Objections</div>
+    <div class="objection-pair"><div class="obj-q">It's too late, there's nothing I can do.</div><div class="obj-a"><span class="key">I understand why it feels that way.</span> And honestly, it might be — I won't tell you otherwise if the timeline doesn't work. But "too late" depends on how many days are left, and I've helped people stop auctions with less time than you might think. Let's find out before we accept that answer. What's the sale date?</div></div>
+    <div class="objection-pair"><div class="obj-q">Someone else already told me there's nothing that can be done.</div><div class="obj-a">I'm not going to say that person was wrong — they may have been looking at different options. What I do is different from a regular agent or attorney. I can move on my own timeline without lender approval, without listing, without waiting. If you've got a few days left, that matters. Will you give me 24 hours to come back with a real answer?</div></div>
+  </div>
+
+  <div class="script-group">
+    <div class="script-group-title">Close Options</div>
+    <div class="close-grid">
+      <div class="close-card"><div class="cc-label">Honest Urgency Close</div><div class="cc-text">"Every day we wait is a day off the clock. I don't say that to pressure you — I say it because it's the reality and you deserve to know it. Can we talk tomorrow morning to move this forward?"</div></div>
+      <div class="close-card"><div class="cc-label">Agency Close</div><div class="cc-text">"The auction takes the decision out of your hands completely. This call is the last moment where you still have a choice. I want to help you use it."</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBATE -->
+<div class="section" id="probate">
+  <div class="section-header">
+    <div class="section-icon" style="background:var(--purple-lt)">🕯️</div>
+    <div class="section-meta">
+      <div class="section-label">Script 04 — Probate</div>
+      <div class="section-title">Grief, paperwork, and a property nobody wanted to deal with</div>
+      <div class="section-desc">This seller is typically an heir or executor managing a deceased person's estate. They may be grieving, dealing with family disagreements, and overwhelmed. Proceed with exceptional gentleness.</div>
+    </div>
+  </div>
+  <div class="mindset"><b>What they're actually feeling:</b> Grief layered with administrative overwhelm. They may feel guilty even thinking about selling. Your role here is almost pastoral — you're making something hard, simpler. Never make them feel like they're betraying a loved one's memory.</div>
+
+  <div class="script-group">
+    <div class="script-group-title">Core Conversation</div>
+    <div class="script-card" id="pr1">
+      <div class="script-card-head" onclick="toggle('pr1')">
+        <div class="sh-left"><span class="script-tag" style="background:var(--purple-lt);color:var(--purple)">Opener</span><span class="script-card-title">The most important opener in this playbook — lead with humanity</span></div>
+        <span class="script-chevron">▾</span>
+      </div>
+      <div class="script-body">
+        <div class="dialogue">
+          <div class="dline you"><span class="role">You</span><span class="line">Hi, is this [Name]? My name is [Your Name]. Before I say anything else — I want you to know I'm aware this property is part of an estate, and I want to say I'm genuinely sorry for your loss. I know that's not why you're answering the phone, and I'll keep this brief. Is this an okay time?</span><span class="note">The condolence is genuine and necessary. If they're still in early grief, honor that — don't push. Many probate sellers just need to feel you're a human being before they'll engage at all.</span></div>
+          <div class="dline you"><span class="role">You</span><span class="line">I work with families managing inherited properties, and a lot of the people I talk to are dealing with the same thing — they want to handle the property respectfully, don't want the hassle of a full listing, and just want to resolve it cleanly so they can focus on what actually matters. I don't know if that's where you are, but if it is, I might be able to help. Where are things with the estate right now?</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="script-card" id="pr2">
+      <div class="script-card-head" onclick="toggle('pr2')">
+        <div class="sh-left"><span class="script-tag" style="background:var(--purple-lt);color:var(--purple)">Deep</span><span class="script-card-title">Addressing guilt, family complexity, the burden of the property</span></div>
+        <span class="script-chevron">▾</span>
+      </div>
+      <div class="script-body">
+        <div class="dialogue">
+          <div class="dline you"><span class="role">You</span><span class="line">A lot of executors feel torn — like selling the house quickly somehow dishonors the person who lived there. I just want to say that's not how I see it, and I don't think it's really true. Taking care of an estate responsibly, quickly, and without drama is one of the most respectful things you can do. Your [relative] worked for that house — making sure its value benefits the family is honoring that.</span><span class="note">Only use this if guilt is present in the conversation. Don't introduce it where it doesn't exist. When it is there, this reframe can be genuinely healing.</span></div>
+          <div class="dline you"><span class="role">You</span><span class="line">Can I ask — are there other family members involved in the decision? I want to make sure everyone is comfortable, and sometimes it helps to have everyone hear the same thing at the same time. Is that something we could arrange?</span><span class="note">Probate deals often stall on family disagreements. Surface this early rather than getting blindsided at contract time.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="script-group">
+    <div class="script-group-title">Objections</div>
+    <div class="objection-pair"><div class="obj-q">We're not sure we're ready to sell yet.</div><div class="obj-a">That's completely understandable — and there's no rush from my end. What I'd suggest is this: let me do a quick assessment so you have a number in your back pocket. When you're ready — whether that's two weeks or six months — you'll know what it's worth. No pressure, just information. Would that be okay?</div></div>
+    <div class="objection-pair"><div class="obj-q">My brother / sister thinks we should list it traditionally.</div><div class="obj-a">That's a fair option. Can I suggest something? Let me put together a side-by-side comparison — what a traditional listing would likely net after agent fees, prep costs, and carrying costs over the listing period, versus a direct sale. Then your family has real numbers to compare. Would that be useful to bring to that conversation?</div></div>
+  </div>
+
+  <div class="script-group">
+    <div class="script-group-title">Close Options</div>
+    <div class="close-grid">
+      <div class="close-card"><div class="cc-label">Simplicity Close</div><div class="cc-text">"One call, one offer, one closing. No showings, no inspections, no back-and-forth. I know you have enough on your plate — this is the version that doesn't add to it."</div></div>
+      <div class="close-card"><div class="cc-label">Legacy Close</div><div class="cc-text">"What your [relative] left behind has value. Let's make sure that value gets to the people who matter, not to carrying costs and delays."</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- VACANT -->
+<div class="section" id="vacant">
+  <div class="section-header">
+    <div class="section-icon" style="background:var(--slate-lt)">🔑</div>
+    <div class="section-meta">
+      <div class="section-label">Script 05 — Vacant / Absentee Owner</div>
+      <div class="section-title">A property that's become a burden, not a benefit</div>
+      <div class="section-desc">This seller owns a property they're not using. They live elsewhere, often far away. The property may be deteriorating, attracting code violations, or costing money every month. Their pain point is quiet, ongoing drain — not urgency.</div>
+    </div>
+  </div>
+  <div class="mindset"><b>What they're actually feeling:</b> Low-grade stress or guilt about a property they've been meaning to "deal with" for months or years. The emotional hook is relief. These conversations are often the most relaxed of the five, and often the easiest to convert once you help them articulate the cost of doing nothing.</div>
+
+  <div class="script-group">
+    <div class="script-group-title">Core Conversation</div>
+    <div class="script-card" id="va1">
+      <div class="script-card-head" onclick="toggle('va1')">
+        <div class="sh-left"><span class="script-tag" style="background:var(--slate-lt);color:var(--slate)">Opener</span><span class="script-card-title">Framing the call around relief, not urgency</span></div>
+        <span class="script-chevron">▾</span>
+      </div>
+      <div class="script-body">
+        <div class="dialogue">
+          <div class="dline you"><span class="role">You</span><span class="line">Hi [Name], my name is [Your Name] — I'm a real estate investor and I came across a property at [address] that I understand you own. I know you're not living there, so I just wanted a quick conversation to see what's going on with it and whether there's a situation where we could be useful to each other. Is now an okay time?</span></div>
+          <div class="dline you"><span class="role">You</span><span class="line">Can I ask — what's the story with the property? Is it something you've been renting out, or has it just been sitting?</span><span class="note">Open-ended. Let them tell you the story. A tired landlord is a different conversation than a relocated homeowner or someone who inherited a second property.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="script-card" id="va2">
+      <div class="script-card-head" onclick="toggle('va2')">
+        <div class="sh-left"><span class="script-tag" style="background:var(--slate-lt);color:var(--slate)">Cost of Waiting</span><span class="script-card-title">Making the invisible drain visible</span></div>
+        <span class="script-chevron">▾</span>
+      </div>
+      <div class="script-body">
+        <div class="dialogue">
+          <div class="dline you"><span class="role">You</span><span class="line">Can I share something I find helpful to think about? A vacant property isn't just sitting there — it's costing something every month. Taxes, insurance, maintenance, maybe a mortgage. And then there's code violation risk if the condition slips. None of those costs are dramatic on their own, but they add up. Over the past year, what do you think that property has cost you, roughly?</span><span class="note">Let them do the math out loud. When they say the number, they've made the case for selling themselves.</span></div>
+          <div class="dline you"><span class="role">You</span><span class="line">Compare that to what a clean sale puts in your pocket, and you're looking at the break-even question — how long do you keep paying for a property you're not using, versus what you'd gain by letting it go now. I'm not saying one answer is right. I just want to make sure you're seeing the full picture.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="script-group">
+    <div class="script-group-title">Objections</div>
+    <div class="objection-pair"><div class="obj-q">I've been meaning to fix it up and rent it out.</div><div class="obj-a">That's a legitimate strategy — rental income is real value. Let me ask: how long have you been meaning to do that? The renovation and property management path has real costs and time attached, and sometimes when people run those numbers honestly, a clean sale actually comes out ahead. Would it be worth doing that math together before you commit to the renovation route?</div></div>
+    <div class="objection-pair"><div class="obj-q">I'm just going to sit on it — the market will go up.</div><div class="obj-a"><span class="key">You might be right about that.</span> Markets do appreciate. The question is whether the monthly carrying cost is worth the potential upside, and whether there's a better use of that capital in the meantime. I'm not here to tell you to sell. I'm here so that if you ever decide to, you know what you have and you have someone ready to move quickly. Can I just get a number in front of you so you have it?</div></div>
+  </div>
+
+  <div class="script-group">
+    <div class="script-group-title">Close Options</div>
+    <div class="close-grid">
+      <div class="close-card"><div class="cc-label">Relief Close</div><div class="cc-text">"Imagine that property just — gone from your to-do list. No more insurance renewals, no more tax bills, no more worrying about what's happening to it. What's that peace of mind worth to you?"</div></div>
+      <div class="close-card"><div class="cc-label">Soft Offer Close</div><div class="cc-text">"Let me just put a number on paper — no commitment, no pressure. At least you'll know what the exit looks like. Then it's your call."</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAXDISPO HANDOFF -->
+<div class="handoff" id="handoff">
+  <h3>After the Yes — Routing to MaxDispo</h3>
+  <p>Once a seller agrees to move forward, the deal enters the pipeline. Here's the handoff sequence.</p>
+  <div class="handoff-steps">
+    <div class="hs"><div class="hn">01</div><div class="ht">Verbal Commitment</div><div class="hd">Confirm offer number, closing timeline, and as-is condition verbally. Recap by text or email same day.</div></div>
+    <div class="hs"><div class="hn">02</div><div class="ht">Contract</div><div class="hd">Get the property under a purchase agreement or agreement to market. This is the human step — state licensing rules apply.</div></div>
+    <div class="hs"><div class="hn">03</div><div class="ht">Engine Packet</div><div class="hd">Open Dispo Engine, find the deal card, hit Approve. The MaxDispo submission packet auto-formats with all details.</div></div>
+    <div class="hs"><div class="hn">04</div><div class="ht">Submit</div><div class="hd">Paste the packet into MaxDispo's 60-second submission. Attach signed contract. Their buyer network closes on 50/50 or fee-on-top terms.</div></div>
+  </div>
+</div>
+
+</div><!-- /page -->
+
+<script>
+function toggle(id){document.getElementById(id).classList.toggle('open');}
+
+const SECTIONS=['universal','preforeclosure','taxlien','auction','probate','vacant','handoff'];
+function goTo(id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const offset=document.querySelector('.nav-wrap').offsetHeight+8;
+  const top=el.getBoundingClientRect().top+window.scrollY-offset;
+  window.scrollTo({top,behavior:'smooth'});
+  setActiveNav(id);
+}
+function setActiveNav(id){
+  document.querySelectorAll('.nav-item').forEach(n=>{
+    n.classList.toggle('active',n.getAttribute('onclick')?.includes("'"+id+"'"));
+  });
+  // scroll nav tab into view
+  const active=document.querySelector('.nav-item.active');
+  if(active)active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+window.addEventListener('scroll',()=>{
+  let current='universal';
+  const offset=document.querySelector('.nav-wrap').offsetHeight+20;
+  SECTIONS.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&el.getBoundingClientRect().top<offset)current=id;
+  });
+  setActiveNav(current);
+},{passive:true});
+</script>
+</body>
+</html>
